@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SecondTestController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +14,7 @@ Route::get('/about', function () {
     return view('about', compact('name', 'email'));
 });
 
-Route::get('/contact', function () { 
+Route::get('/contact', function () {
     return view('contact');
 });
 
@@ -42,9 +41,12 @@ Route::fallback(function () {
 Route::prefix('/api')->group(function () {
     Route::controller((ProductController::class))->group(function () {
         Route::get('/products',  'index');
-        Route::get('/products/{slug}',  'slug');
+        Route::get('/products/add',  'add');
+        Route::get('/products/update/{id}',  'update');
+        Route::get('/products/delete/{id}',  'destroy');
+        Route::get('/products/{id}',  'show');
     });
-    Route::get('/test', TestController::class);
-    Route::resource('second-test', SecondTestController::class);
+    Route::controller((UserController::class))->group(function () {
+        Route::get('/users',  'index');
+    });
 });
-

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class SecondTestController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return 'This is a second test controller index method';
+        return User::all();
     }
 
     /**
@@ -19,7 +20,7 @@ class SecondTestController extends Controller
      */
     public function create()
     {
-        return 'This is a second test controller create method';
+        //
     }
 
     /**
@@ -27,7 +28,7 @@ class SecondTestController extends Controller
      */
     public function store(Request $request)
     {
-        return 'This is a second test controller store method';
+        //
     }
 
     /**
@@ -35,7 +36,7 @@ class SecondTestController extends Controller
      */
     public function show(string $id)
     {
-        return 'This is a second test controller show method';
+        //
     }
 
     /**
@@ -43,7 +44,7 @@ class SecondTestController extends Controller
      */
     public function edit(string $id)
     {
-        return 'This is a second test controller edit method';
+        //
     }
 
     /**
@@ -51,7 +52,7 @@ class SecondTestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        return 'This is a second test controller update method';
+        //
     }
 
     /**
@@ -59,6 +60,6 @@ class SecondTestController extends Controller
      */
     public function destroy(string $id)
     {
-        return 'This is a second test controller destroy method';
+        //
     }
 }
